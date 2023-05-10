@@ -1,7 +1,7 @@
 require('dotenv').config();
 require('./config/database');
 
-const Category = require('./models/category');
+// const Category = require('../models/category');
 // const Item = require('./models/item');
 const Mypath = require('./models/mypath');
 
@@ -13,9 +13,9 @@ const Mypath = require('./models/mypath');
 
   await Mypath.deleteMany({});
   const mypath = await Mypath.create([
-    {country: 'Canada', description: 'true north', tags: 'north', itinerary: 'depart airport'},
-    {country: 'Hong Kong', description: 'busy city', tags: 'asia', itinerary: 'depart airport'},
-    {country: 'Italy', description: 'pasta central', tags: 'europe', itinerary: 'depart airport'},
+    {title: '7 days in Canada', country: 'Canada', description: 'true north', tags: ['north', 'family'], itinerary: ['depart airport', 'get to hotel', 'check out restaurant'], user: {_id: "6451b28bd660f8adbcc2ffe2", name: 'test1', email: 'test1@test1.com'}},
+    {title: '14 days in Hong Kong', country: 'Hong Kong', description: 'busy city', tags: ['asia', 'foodie'], itinerary: ['depart airport', 'get to hotel', 'check out restaurant'], user: {_id: "6451b28bd660f8adbcc2ffe2", name: 'test1', email: 'test1@test1.com'}},
+    {title: '21 days in Italy', country: 'Italy', description: 'pasta central', tags: ['europe', 'backpack'], itinerary: ['depart airport', 'get to hotel', 'check out restaurant'], user: {_id: "645ac98184116394944be2ab", name: 'TEST2', email: 'test2@test2.com'}},
   ]);
 
 
