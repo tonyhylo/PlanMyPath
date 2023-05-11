@@ -1,5 +1,5 @@
 import * as userService from "../../utilities/users-service";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import * as mypathsAPI from "../../utilities/mypaths-api";
 import TagsListItem from "../TagsListItem/TagsListItem";
@@ -21,20 +21,19 @@ export default function CreateNewPathPage(props) {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    setNewPath({ ...newPath, tags: newTags });
+  }, [newTags]);
+
   function handleChange(evt) {
     setNewPath({ ...newPath, [evt.target.name]: evt.target.value });
     setError("");
   }
 
   async function handleSubmit(evt) {
-    // Prevent form from being submitted to the server
     evt.preventDefault();
     try {
-      // The promise returned by the signUp service method
-      // will resolve to the user object included in the
-      // payload of the JSON Web Token (JWT)
       const path = await mypathsAPI.create(newPath);
-      // setNewPath({ ...newPath, [evt.target.name]: evt.target.value });
       props.setMyPaths([...props.myPaths, path]);
       navigate(`/${path.title}`);
     } catch {
@@ -43,16 +42,12 @@ export default function CreateNewPathPage(props) {
   }
 
   function handleTag(evt) {
-    console.log("entered handleTag");
     evt.preventDefault();
-    console.log(1, evt)
-    setNewTags([ ...newTags, inputRef.current.value]);
-    console.log("tag? ", inputRef.current.value);
-    console.log(newPath);
+    setNewTags([...newTags, inputRef.current.value]);
+    inputRef.current.value = "";
   }
 
   function handleTagChange(evt, second) {
-    // setNewTags([ ...newTags, "test"]);
     setError("");
   }
 
@@ -81,39 +76,33 @@ export default function CreateNewPathPage(props) {
           onChange={handleChange}
           type="text"
         />
-        {/* <form onSubmit={handleTag}> */}
-          <label>Tags </label>
-          {newTags.length >= 5 ? (
+        <label>Tags </label>
+        {newTags.length >= 5 ? (
+          <ul>
+            {newTags.map((tagsItem, i) => (
+              <TagsListItem tagsItem={tagsItem} />
+            ))}
+          </ul>
+        ) : (
+          <>
             <ul>
               {newTags.map((tagsItem, i) => (
                 <TagsListItem tagsItem={tagsItem} />
               ))}
             </ul>
-          ) : (
-            <>
-              {/* <ul>
-                <li>{newPath.tags}</li>
-              </ul> */}
-              <ul>
-                {newTags.map((tagsItem, i) => (
-                  <TagsListItem tagsItem={tagsItem} />
-                ))}
-              </ul>
-              <input
-                name="tags"
-                ref={inputRef}
-                onChange={handleTagChange}
-                // value={newTags}
-                type="text"
-              />
-            </>
-          )}
-          <div>
-            <button type="button" onClick={handleTag}>
-              <strong>ADD TAG</strong>
-            </button>
-          </div>
-        {/* </form> */}
+            <input
+              name="tags"
+              ref={inputRef}
+              onChange={handleTagChange}
+              type="text"
+            />
+          </>
+        )}
+        <div>
+          <button type="button" onClick={handleTag}>
+            <strong>ADD TAG</strong>
+          </button>
+        </div>
         <div>
           <button type="submit">
             <strong>ADD PATH</strong>
