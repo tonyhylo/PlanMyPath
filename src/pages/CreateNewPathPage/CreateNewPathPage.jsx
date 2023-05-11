@@ -47,6 +47,12 @@ export default function CreateNewPathPage(props) {
     inputRef.current.value = "";
   }
 
+  function handleTagDelete(evt, idx) {
+    evt.preventDefault();
+    const tempTags = [...newTags];
+    console.log("idx: ", evt);
+  }
+
   function handleTagChange(evt, second) {
     setError("");
   }
@@ -78,16 +84,45 @@ export default function CreateNewPathPage(props) {
         />
         <label>Tags </label>
         {newTags.length >= 5 ? (
-          <ul>
-            {newTags.map((tagsItem, i) => (
-              <TagsListItem tagsItem={tagsItem} />
-            ))}
-          </ul>
+          <>
+            <ul>
+              {newTags.map((tagsItem, i) => (
+                <>
+                  <TagsListItem tagsItem={tagsItem} />
+                  <button
+                    type="button"
+                    onClick={(evt) => {
+                      evt.preventDefault();
+                      const tempTags = [...newTags];
+                      tempTags.splice(i, 1);
+                      setNewTags(tempTags);
+                    }}
+                  >
+                    <strong>X</strong>
+                  </button>
+                </>
+              ))}
+            </ul>
+            <p>MAX 5 TAGS</p>
+          </>
         ) : (
           <>
             <ul>
               {newTags.map((tagsItem, i) => (
-                <TagsListItem tagsItem={tagsItem} />
+                <>
+                  <TagsListItem tagsItem={tagsItem} />
+                  <button
+                    type="button"
+                    onClick={(evt) => {
+                      evt.preventDefault();
+                      const tempTags = [...newTags];
+                      tempTags.splice(i, 1);
+                      setNewTags(tempTags);
+                    }}
+                  >
+                    <strong>X</strong>
+                  </button>
+                </>
               ))}
             </ul>
             <input
@@ -96,13 +131,13 @@ export default function CreateNewPathPage(props) {
               onChange={handleTagChange}
               type="text"
             />
+            <div>
+              <button type="button" onClick={handleTag}>
+                <strong>ADD TAG</strong>
+              </button>
+            </div>
           </>
         )}
-        <div>
-          <button type="button" onClick={handleTag}>
-            <strong>ADD TAG</strong>
-          </button>
-        </div>
         <div>
           <button type="submit">
             <strong>ADD PATH</strong>
