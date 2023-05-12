@@ -10,7 +10,7 @@ export default function ItineraryCard(props) {
         <div>Description: {props.description}</div>
         <div>Tags: {props.tags.join(", ")}</div>
       </Link>
-      {props.user == props.currentUser._id ? (
+      {props.user == props.currentUser._id && props.notFindDetailPage ? (
         <Link to={`/${props.title}/edit`}>EDIT</Link>
       ) : (
         ""

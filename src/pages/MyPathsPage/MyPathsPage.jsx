@@ -48,6 +48,7 @@ export default function MyPathsPage(props) {
                 title={path.title}
                 user={path.user}
                 currentUser={props.user}
+                notFindDetailPage={1}
               />
 
               {props.user._id == path.user ? (
