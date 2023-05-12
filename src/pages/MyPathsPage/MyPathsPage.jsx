@@ -16,7 +16,7 @@ async function deletePath(deletedPath) {
     const path = await mypathsAPI.deletePath(deletedPath);
     if (path.message == "ok") {
       props.setMyPaths(props.myPaths.filter((id) => {
-        return id._id != deletedPath;
+        return id._id != deletedPath._id;
       }))
     }
     navigate(`/`);

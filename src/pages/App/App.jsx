@@ -26,6 +26,14 @@ export default function App() {
     getPaths();
   }, []);
 
+  useEffect(function () {
+    async function getPaths() {
+      const paths = await mypathsAPI.getAll();
+      setMyPaths(paths);
+    }
+    getPaths();
+  }, [myPaths]);
+
   return (
     <main className="App">
       {user ? (
