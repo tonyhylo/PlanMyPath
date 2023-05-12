@@ -54,6 +54,7 @@ export default function MyPathsPage(props) {
                 createdAt={path.createdAt}
                 id={path._id}
                 setMyPaths={props.setMyPaths}
+                myPaths={props.myPaths}
               />
 
               {props.user._id == path.user ? (
