@@ -33,50 +33,57 @@ export default function ItineraryCard(props) {
 
   return (
     <>
-      <Link to={`/${props.title}`}>
-        <div class="card">
-          <div class="card-content">
-            <div class="media">
-              <div class="media-content">
-                <p class="title is-4">{props.title}</p>
-                <p class="subtitle is-8">{props.country}</p>
-                <p class="subtitle is-6">{props.tags.join(", ")}</p>
+      <div class="tile is-11 is-vertical is-parent" >
+        {/* <div class="tile is-3 is-vertical is-parent">
+        <div> class="tile is-child"> */}
+        <Link to={`/${props.title}`}>
+          <div class="card">
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <p class="title is-4">{props.title}</p>
+                  <p class="subtitle is-8">{props.country}</p>
+                  <p class="subtitle is-6">{props.tags.join(", ")}</p>
+                </div>
+              </div>
+              <div class="content">
+                {props.description}
+                <br />
+                <time>{props.createdAt.slice(0, 10)}</time>
               </div>
             </div>
-            <div class="content">
-              {props.description}
-              <br />
-              <time>{props.createdAt.slice(0, 10)}</time>
-              <p>props.id: {props.id}</p>
-            </div>
+            {props.user == props.currentUser._id && props.notFindDetailPage ? (
+              <>
+                <Link to={`/${props.title}/edit`}>
+                  <button class="button is-warning is-light">EDIT</button>
+                </Link>
+                &nbsp;
+                <button
+                  onClick={(evt) => {
+                    evt.preventDefault();
+                    deletePath(props.id);
+                  }}
+                  class="button is-danger is-light"
+                >
+                  X
+                </button>
+              </>
+            ) : (
+              ""
+            )}
           </div>
-          {props.user == props.currentUser._id && props.notFindDetailPage ? (
-            <>
-              <Link to={`/${props.title}/edit`}>EDIT</Link>
-              <button
-                onClick={(evt) => {
-                  evt.preventDefault();
-                  deletePath(props.id);
-                }}
-              >
-                X
-              </button>
-            </>
-          ) : (
-            ""
-          )}
-        </div>
 
-        {/* <h1>{props.title}</h1> */}
-        {/* <div>Country: {props.country}</div> */}
-        {/* <div>Description: {props.description}</div> */}
-        {/* <div>Tags: {props.tags.join(", ")}</div> */}
-      </Link>
-      {/* {props.user == props.currentUser._id && props.notFindDetailPage ? (
+          {/* <h1>{props.title}</h1> */}
+          {/* <div>Country: {props.country}</div> */}
+          {/* <div>Description: {props.description}</div> */}
+          {/* <div>Tags: {props.tags.join(", ")}</div> */}
+        </Link>
+        {/* {props.user == props.currentUser._id && props.notFindDetailPage ? (
         <Link to={`/${props.title}/edit`}>EDIT</Link>
       ) : (
         ""
       )} */}
+      </div>
     </>
   );
 }
