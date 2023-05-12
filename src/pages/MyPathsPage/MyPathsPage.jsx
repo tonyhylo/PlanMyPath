@@ -19,6 +19,8 @@ async function deletePath(deletedPath) {
         return id._id != deletedPath._id;
       }))
     }
+    props.getPaths();
+    console.log("set props agasin");
     navigate(`/`);
   } catch {
     setError("Path Save Failed - Try Again");

@@ -2,16 +2,38 @@ import * as userService from "../../utilities/users-service";
 import { useParams, useNavigate } from "react-router-dom";
 import ItineraryListItem from "../ItineraryListItem/ItineraryListItem";
 import * as mypathsAPI from "../../utilities/mypaths-api";
+import { useState } from 'react';
+
 
 export default function MyPathDetailPage(props) {
   const { pathName } = useParams();
+  const [error, setError] = useState("");
 
   let thisPath = props.myPaths.find((path) => path.title === pathName);
 
   const navigate = useNavigate();
 
   thisPath.state = {
-    editing: true
+    editing: true,
+  };
+
+  async function deletePath(deletedPath) {
+    try {
+      console.log("trying to delete");
+      const path = await mypathsAPI.deletePath(deletedPath);
+      if (path.message == "ok") {
+        props.setMyPaths(
+          props.myPaths.filter((id) => {
+            return id._id != deletedPath._id;
+          })
+        );
+      }
+      const deletedPath = await mypathsAPI.getAll();
+      props.setMyPaths(deletedPath);
+      navigate(`/`);
+    } catch {
+      setError("Path Save Failed - Try Again");
+    }
   }
 
   function edit() {
@@ -40,6 +62,14 @@ export default function MyPathDetailPage(props) {
         ))}
       </ol>
       <div>Created: {thisPath.createdAt.slice(0, 10)}</div>
+      <button
+        onClick={(evt) => {
+          evt.preventDefault();
+          deletePath(thisPath._id);
+        }}
+      >
+        X
+      </button>
     </>
   );
 }

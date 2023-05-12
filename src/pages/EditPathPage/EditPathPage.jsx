@@ -8,7 +8,6 @@ export default function EditPathPage(props) {
   const [path, setPath] = useState({});
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  let editPath;
 
   // useEffect(() => {
   //   props.setMyPaths([...props.setMyPaths, editPath]);
@@ -22,16 +21,10 @@ export default function EditPathPage(props) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      editPath = await mypathsAPI.edit(path);
+      const editPath = await mypathsAPI.edit(path);
       console.log(`editPath: ${JSON.stringify(editPath)}`);
-      // props.setMyPaths(
-      //   props.myPaths.filter((deletedPath) => {
-      //     return path._id != deletedPath._id;
-      //   })
-      // );
       const paths = await mypathsAPI.getAll();
       props.setMyPaths(paths);
-      // props.setMyPaths([...props.myPaths, editPath]);
       console.log("before nav");
       navigate("/");
       console.log("after nav");
