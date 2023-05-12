@@ -47,6 +47,7 @@ export default function FindPathsDetailPage(props) {
             description={path.description}
             title={path.title}
             user={path.user}
+            currentUser={props.user}
           />
         </>
       ))}

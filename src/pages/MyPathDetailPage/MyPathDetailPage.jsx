@@ -61,15 +61,22 @@ export default function MyPathDetailPage(props) {
         ))}
       </ol>
       <div>Created: {thisPath.createdAt.slice(0, 10)}</div>
-      <Link to={`/${thisPath.title}/edit`}>EDIT</Link>
-      <button
-        onClick={(evt) => {
-          evt.preventDefault();
-          deletePath(thisPath._id);
-        }}
-      >
-        X
-      </button>
+      {/* <div>props.user._id: {props.user._id}</div> */}
+      {props.user._id == thisPath.user ? (
+        <>
+          <Link to={`/${thisPath.title}/edit`}>EDIT</Link>
+          <button
+            onClick={(evt) => {
+              evt.preventDefault();
+              deletePath(thisPath._id);
+            }} 
+          >
+            X
+          </button>
+        </>
+      ) : (
+        ""
+      )}
     </>
   );
 }

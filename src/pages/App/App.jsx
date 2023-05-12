@@ -58,11 +58,11 @@ export default function App() {
             />
             <Route
               path="/:pathName"
-              element={<MyPathDetailPage myPaths={myPaths} setMyPaths={setMyPaths} />}
+              element={<MyPathDetailPage myPaths={myPaths} setMyPaths={setMyPaths} user={user} />}
             />
             <Route
               path="/find/:findPathName"
-              element={<FindPathsDetailPage myPaths={myPaths} />}
+              element={<FindPathsDetailPage myPaths={myPaths} user={user} />}
             />
             <Route
               path="/createnewpath"

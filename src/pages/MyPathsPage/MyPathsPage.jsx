@@ -47,15 +47,21 @@ export default function MyPathsPage(props) {
                 description={path.description}
                 title={path.title}
                 user={path.user}
+                currentUser={props.user}
               />
-              <button
-                onClick={(evt) => {
-                  evt.preventDefault();
-                  deletePath(path._id);
-                }}
-              >
-                X
-              </button>
+
+              {props.user._id == path.user ? (
+                <button
+                  onClick={(evt) => {
+                    evt.preventDefault();
+                    deletePath(path._id);
+                  }}
+                >
+                  X
+                </button>
+              ) : (
+                ""
+              )}
             </>
           ) : (
             ""
