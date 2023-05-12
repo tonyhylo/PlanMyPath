@@ -1,5 +1,5 @@
 import * as userService from "../../utilities/users-service";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import ItineraryListItem from "../ItineraryListItem/ItineraryListItem";
 import * as mypathsAPI from "../../utilities/mypaths-api";
 import { useState } from "react";
@@ -61,6 +61,7 @@ export default function MyPathDetailPage(props) {
         ))}
       </ol>
       <div>Created: {thisPath.createdAt.slice(0, 10)}</div>
+      <Link to={`/${thisPath.title}/edit`}>EDIT</Link>
       <button
         onClick={(evt) => {
           evt.preventDefault();

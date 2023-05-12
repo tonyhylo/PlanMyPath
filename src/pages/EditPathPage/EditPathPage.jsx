@@ -66,7 +66,7 @@ export default function EditPathPage(props) {
         />
         <div>
           <button type="submit">
-            <strong>EDIT PATH</strong>
+            <strong>SAVE EDIT</strong>
           </button>
         </div>
       </form>

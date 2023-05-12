@@ -31,16 +31,6 @@ export default function MyPathsPage(props) {
     }
   }
 
-  // const [itinerary, setItinerary] = useState([]);
-
-  // useEffect(function () {
-  //   async function getItems() {
-  //     const mypaths = await mypathsAPI.getAll();
-  //     setItinerary(mypaths);
-  //   }
-  //   getItems();
-  // }, []);
-
   return (
     <>
       <h1>MyPathsPage</h1>
