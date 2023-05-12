@@ -1,4 +1,5 @@
 import * as userService from '../../utilities/users-service'
+import "./ProfilePage.css";
 
 export default function ProfilePage(props) {
 

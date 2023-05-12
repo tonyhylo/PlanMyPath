@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import * as userService from "../../utilities/users-service";
 import { useParams, useNavigate } from "react-router-dom";
 import ItineraryCard from "../ItineraryCard/ItineraryCard";
+import "./FindPathsDetailPage.css";
 
 export default function FindPathsDetailPage(props) {
   const { findPathName } = useParams();

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import * as mypathsAPI from "../../utilities/mypaths-api";
 import TagsListItem from "../TagsListItem/TagsListItem";
 import ItineraryListItem from "../ItineraryListItem/ItineraryListItem"
+import "./CreateNewPathPage.css"
 
 export default function CreateNewPathPage(props) {
   const [newPath, setNewPath] = useState({

@@ -1,5 +1,6 @@
 import * as userService from "../../utilities/users-service";
 import { Link } from "react-router-dom";
+import "./ItineraryCard.css";
 
 export default function ItineraryCard(props) {
   return (

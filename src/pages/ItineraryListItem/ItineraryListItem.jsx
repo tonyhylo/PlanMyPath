@@ -1,4 +1,5 @@
 import * as userService from '../../utilities/users-service'
+import "./ItineraryListItem.css";
 
 export default function ItineraryListItem(props) {
 

@@ -2,6 +2,7 @@ import * as userService from "../../utilities/users-service";
 import { Link, useNavigate } from "react-router-dom";
 import * as mypathsAPI from "../../utilities/mypaths-api";
 import ItineraryCard from "../ItineraryCard/ItineraryCard";
+import "./MyPathsPage.css";
 
 import { useState, useEffect } from "react";
 

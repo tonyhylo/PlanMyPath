@@ -1,6 +1,7 @@
 import * as userService from "../../utilities/users-service";
 import { useState, useRef, useEffect } from "react";
 import TagsListItem from "../TagsListItem/TagsListItem";
+import "./FindPathsPage.css";
 
 export default function FindPathsPage(props) {
   const [allPaths, setAllPaths] = useState([]);

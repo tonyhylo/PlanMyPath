@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import * as mypathsAPI from "../../utilities/mypaths-api";
 import TagsListItem from "../TagsListItem/TagsListItem";
 import ItineraryListItem from "../ItineraryListItem/ItineraryListItem";
+import "./EditPathPage.css";
 
 export default function EditPathPage(props) {
   const { pathName } = useParams();

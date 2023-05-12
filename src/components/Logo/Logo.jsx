@@ -3,8 +3,7 @@ import './Logo.css';
 export default function Logo() {
   return (
     <div className="Logo">
-      <div>SEI</div>
-      <div>CAFE</div>
+      <div><strong>🌎PLAN MY PATH</strong></div>
     </div>
   );
 }

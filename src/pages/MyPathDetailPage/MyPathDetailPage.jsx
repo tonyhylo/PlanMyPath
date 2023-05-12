@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import ItineraryListItem from "../ItineraryListItem/ItineraryListItem";
 import * as mypathsAPI from "../../utilities/mypaths-api";
 import { useState } from "react";
+import "./MyPathDetailPage.css";
 
 export default function MyPathDetailPage(props) {
   const { pathName } = useParams();
