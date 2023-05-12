@@ -49,7 +49,36 @@ export default function FindPathsPage(props) {
 
   return (
     <>
-      <h1>FindPathsPage</h1>
+      <h1 class="title is-1 has-text-centered" id="h1-title">Find Paths</h1>
+
+      <article class="message is-success">
+        <div class="message-header">
+          <p>By Tag:</p>
+        </div>
+        <div class="message-body content">
+          <ul>
+            {allTags.map((tag1, i) => {
+              return (
+                <TagsListItem tagsItem={tag1} title="title6" isTag={true} />
+              );
+            })}
+          </ul>
+        </div>
+      </article>
+      <br />
+      <article class="message is-success">
+        <div class="message-header">
+          <p>By Country:</p>
+        </div>
+        <div class="message-body content">
+      <ul>
+        {allCountries.map((tag1, i) => {
+          return <TagsListItem tagsItem={tag1} title="title6" isTag={false} />;
+        })}
+      </ul>
+        </div>
+      </article>
+{/* 
       <div>By Tag:</div>
       <ul>
         {allTags.map((tag1, i) => {
@@ -61,7 +90,7 @@ export default function FindPathsPage(props) {
         {allCountries.map((tag1, i) => {
           return <TagsListItem tagsItem={tag1} title="title6" isTag={false} />;
         })}
-      </ul>
+      </ul> */}
     </>
   );
 }
