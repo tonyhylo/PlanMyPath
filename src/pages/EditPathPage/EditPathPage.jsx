@@ -8,6 +8,11 @@ export default function EditPathPage(props) {
   const [path, setPath] = useState({});
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  let editPath;
+
+  // useEffect(() => {
+  //   props.setMyPaths([...props.setMyPaths, editPath]);
+  // }, [props.myPaths]);
 
   useEffect(() => {
     let thisPath = props.myPaths.find((path) => path.title === pathName);
@@ -17,19 +22,21 @@ export default function EditPathPage(props) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      const editPath = await mypathsAPI.edit(path);
+      editPath = await mypathsAPI.edit(path);
       console.log(`editPath: ${JSON.stringify(editPath)}`);
-      props.setMyPaths(
-        [...props.myPaths.filter((deletedPath) => {
-          return path._id != deletedPath._id;
-        }), editPath]
-      );
+      // props.setMyPaths(
+      //   props.myPaths.filter((deletedPath) => {
+      //     return path._id != deletedPath._id;
+      //   })
+      // );
+      const paths = await mypathsAPI.getAll();
+      props.setMyPaths(paths);
       // props.setMyPaths([...props.myPaths, editPath]);
       console.log("before nav");
       navigate("/");
       console.log("after nav");
     } catch {
-      setError("Path Save Failed - Try Again");
+      setError("Path Update Failed - Try Again");
     }
   }
 
