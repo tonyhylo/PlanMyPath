@@ -17,12 +17,11 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   const [myPaths, setMyPaths] = useState([]);
 
-  async function getPaths() {
-    const paths = await mypathsAPI.getAll();
-    setMyPaths(paths);
-  }
-
   useEffect(function () {
+    async function getPaths() {
+      const paths = await mypathsAPI.getAll();
+      setMyPaths(paths);
+    }
     getPaths();
   }, []);
 
@@ -44,7 +43,7 @@ export default function App() {
             />
             <Route
               path="/findpaths"
-              element={<FindPathsPage myPaths={myPaths} getPaths={getPaths} />}
+              element={<FindPathsPage myPaths={myPaths} setMyPaths={setMyPaths} />}
             />
             <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route
@@ -59,7 +58,7 @@ export default function App() {
             />
             <Route
               path="/:pathName"
-              element={<MyPathDetailPage myPaths={myPaths} />}
+              element={<MyPathDetailPage myPaths={myPaths} setMyPaths={setMyPaths} />}
             />
             <Route
               path="/find/:findPathName"

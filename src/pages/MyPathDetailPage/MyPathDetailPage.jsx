@@ -2,8 +2,7 @@ import * as userService from "../../utilities/users-service";
 import { useParams, useNavigate } from "react-router-dom";
 import ItineraryListItem from "../ItineraryListItem/ItineraryListItem";
 import * as mypathsAPI from "../../utilities/mypaths-api";
-import { useState } from 'react';
-
+import { useState } from "react";
 
 export default function MyPathDetailPage(props) {
   const { pathName } = useParams();
@@ -13,9 +12,10 @@ export default function MyPathDetailPage(props) {
 
   const navigate = useNavigate();
 
-  thisPath.state = {
-    editing: true,
-  };
+  async function getPaths() {
+    const paths = await mypathsAPI.getAll();
+    props.setMyPaths(paths);
+  }
 
   async function deletePath(deletedPath) {
     try {
@@ -28,8 +28,7 @@ export default function MyPathDetailPage(props) {
           })
         );
       }
-      const deletedPath = await mypathsAPI.getAll();
-      props.setMyPaths(deletedPath);
+      getPaths();
       navigate(`/`);
     } catch {
       setError("Path Save Failed - Try Again");
