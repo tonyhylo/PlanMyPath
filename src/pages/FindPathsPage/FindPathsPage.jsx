@@ -53,13 +53,13 @@ export default function FindPathsPage(props) {
       <div>By Tag:</div>
       <ul>
         {allTags.map((tag1, i) => {
-          return <TagsListItem tagsItem={tag1} title="title6" />;
+          return <TagsListItem tagsItem={tag1} title="title6" isTag={true} />;
         })}
       </ul>
       <div>By Country:</div>
       <ul>
         {allCountries.map((tag1, i) => {
-          return <TagsListItem tagsItem={tag1} title="title6" />;
+          return <TagsListItem tagsItem={tag1} title="title6" isTag={false} />;
         })}
       </ul>
     </>

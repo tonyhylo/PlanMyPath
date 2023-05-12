@@ -39,21 +39,23 @@ export default function FindPathsDetailPage(props) {
 
   return (
     <>
-      <h1>FindPathsDetailPage</h1>
-      {foundPaths.map((path, i) => (
-        <>
-          <ItineraryCard
-            country={path.country}
-            tags={path.tags}
-            description={path.description}
-            title={path.title}
-            user={path.user}
-            currentUser={props.user}
-            notFindDetailPage={false}
-            createdAt={path.createdAt}
-          />
-        </>
-      ))}
+      <h1 class="title is-1 has-text-left" id="h1-title">Paths with "{findPathName}"</h1>
+      <div class="path-list">
+        {foundPaths.map((path, i) => (
+          <>
+            <ItineraryCard
+              country={path.country}
+              tags={path.tags}
+              description={path.description}
+              title={path.title}
+              user={path.user}
+              currentUser={props.user}
+              notFindDetailPage={false}
+              createdAt={path.createdAt}
+            />
+          </>
+        ))}
+      </div>
     </>
   );
 }

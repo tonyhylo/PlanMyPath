@@ -42,13 +42,13 @@ export default function MyPathDetailPage(props) {
 
   return (
     <>
-      <section class="hero is-primary">
+      <section class="hero is-success">
         <div class="hero-body">
           <p class="title">{thisPath.title}</p>
           <p class="subtitle">{thisPath.country}</p>
         </div>
       </section>
-      <article class="message is-primary">
+      <article class="message is-success">
         <div class="message-body">Description: {thisPath.description}</div>
         <div class="message-body">Tags: {thisPath.tags.join(", ")}</div>
         <div class="message-body">Itinerary:</div>
