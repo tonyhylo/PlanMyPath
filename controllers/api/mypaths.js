@@ -6,6 +6,7 @@ module.exports = {
   show,
   create,
   edit,
+  delete: deletePath,
 };
 
 async function index(req, res) {
@@ -43,9 +44,28 @@ async function create(req, res) {
 
 async function edit(req, res) {
   // Book.findById(req.params.id, function(err, book) {
-  Mypath.findById(req.params.id, function (err, path) {
+  // Mypath.findById(req.params.id, function (err, path) {
+    Mypath.findByIdAndUpdate(req.params.id, req.body, function(err, doc) {
+      if (err) { 
+        console.log(err) ;
+      }
+      res.json(doc);
+    });
     // Verify book is "owned" by logged in user
-    if (!path.user.equals(req.user._id)) return res.redirect("/");
-    res.render("paths/edit", { path });
-  });
+    // if (!path.user.equals(req.user._id)) return res.redirect("/");
+    // res.render("paths/edit", { path });
+    // if (!path.user.equals(req.user._id)) return res.redirect("/");
+    // res.render("paths/edit", { path });
+  // });
 }
+
+async function deletePath(req, res) {
+  console.log(`req.params: ${req.params}`)
+  Mypath.findById(req.params.id, function (err, path) {
+    console.log(`req.params.id: ${req.params.id}`);
+    console.log(`path: ${path}`);
+    // console.log(`err: ${err}`);
+    path.remove(req.params.id);
+    res.json({message: "ok"});
+  });
+};

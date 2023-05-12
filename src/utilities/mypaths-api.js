@@ -15,7 +15,11 @@ export function create(payload) {
 }
 
 export function edit(payload) {
-  return sendRequest(`${BASE_URL}`,"GET",payload);
+  return sendRequest(`${BASE_URL}/${payload._id}`,"PUT",payload);
+}
+
+export function deletePath(payload) {
+  return sendRequest(`${BASE_URL}/${payload}/delete`,"DELETE");
 }
 
 // Won't be used in SEI CAFE, but demonstrates

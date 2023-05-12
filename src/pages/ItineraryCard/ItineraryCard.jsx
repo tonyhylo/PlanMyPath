@@ -10,6 +10,7 @@ export default function ItineraryCard(props) {
         <div>Description: {props.description}</div>
         <div>Tags: {props.tags.join(", ")}</div>
       </Link>
+      <Link to={`/${props.title}/edit`}>EDIT</Link>
     </>
   );
 }

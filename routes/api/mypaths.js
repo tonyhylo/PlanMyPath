@@ -8,6 +8,7 @@ router.get('/', mypathsCtrl.index);
 router.get('/:id', mypathsCtrl.show);
 // POST
 router.post('/', mypathsCtrl.create);
-router.get('/:id/edit', mypathsCtrl.edit);
+router.put('/:id', mypathsCtrl.edit);
+router.delete('/:id/delete', mypathsCtrl.delete);
 
 module.exports = router;

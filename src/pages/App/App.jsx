@@ -11,6 +11,7 @@ import MyPathDetailPage from "../MyPathDetailPage/MyPathDetailPage"
 import * as mypathsAPI from "../../utilities/mypaths-api";
 import CreateNewPathPage from "../CreateNewPathPage/CreateNewPathPage"
 import EditPathPage from "../EditPathPage/EditPathPage";
+import FindPathsDetailPage from "../FindPathsDetailPage/FindPathsDetailPage";
 
 export default function App() {
 
@@ -31,13 +32,17 @@ export default function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
-            <Route path="/" element={<MyPathsPage myPaths={myPaths} user={user} />} />
-            <Route path="/findpaths" element={<FindPathsPage />} />
+            <Route path="/" element={<MyPathsPage myPaths={myPaths} setMyPaths={setMyPaths} user={user} />} />
+            <Route path="/findpaths" element={<FindPathsPage myPaths={myPaths} />} />
             <Route path="/profile" element={<ProfilePage user={user} />} />
-            <Route path="/:pathName/edit" element={<EditPathPage user={user} />} />
+            <Route path="/:pathName/edit" element={<EditPathPage user={user} myPaths={myPaths} setMyPaths={setMyPaths} />} />
             <Route
               path="/:pathName"
               element={<MyPathDetailPage myPaths={myPaths} />}
+            />
+            <Route
+              path="/find/:findPathName"
+              element={<FindPathsDetailPage myPaths={myPaths} />}
             />
             <Route path="/createnewpath" element={<CreateNewPathPage myPaths={myPaths} setMyPaths={setMyPaths} user={user} />} />
           </Routes>
