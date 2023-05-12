@@ -12,6 +12,7 @@ import * as mypathsAPI from "../../utilities/mypaths-api";
 import CreateNewPathPage from "../CreateNewPathPage/CreateNewPathPage";
 import EditPathPage from "../EditPathPage/EditPathPage";
 import FindPathsDetailPage from "../FindPathsDetailPage/FindPathsDetailPage";
+import 'bulma/css/bulma.min.css';
 
 export default function App() {
   const [user, setUser] = useState(getUser());

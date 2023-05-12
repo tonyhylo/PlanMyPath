@@ -50,6 +50,7 @@ export default function FindPathsDetailPage(props) {
             user={path.user}
             currentUser={props.user}
             notFindDetailPage={false}
+            createdAt={path.createdAt}
           />
         </>
       ))}

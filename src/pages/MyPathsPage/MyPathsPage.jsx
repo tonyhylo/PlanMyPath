@@ -38,6 +38,7 @@ export default function MyPathsPage(props) {
       <div>
         <Link to="/createnewpath">CREATE NEW PATH</Link>
       </div>
+      
       <div>
         {props.myPaths.map((path, i) =>
           props.user._id == path.user ? (
@@ -50,6 +51,9 @@ export default function MyPathsPage(props) {
                 user={path.user}
                 currentUser={props.user}
                 notFindDetailPage={1}
+                createdAt={path.createdAt}
+                id={path._id}
+                setMyPaths={props.setMyPaths}
               />
 
               {props.user._id == path.user ? (

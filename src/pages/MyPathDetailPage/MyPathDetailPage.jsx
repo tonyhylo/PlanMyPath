@@ -43,16 +43,7 @@ export default function MyPathDetailPage(props) {
   return (
     <>
       <h1>{thisPath.title}</h1>
-      {/* <div>thisItinerary: {JSON.stringify(thisItinerary)}</div> */}
       <div>Country: {thisPath.country}</div>
-      {/* {!thisPath.state.editing ? (
-              <span>Country: {thisPath.country}</span>
-            ) : (
-              <input
-                type="text"
-                defaultValue={thisPath.country}
-              />
-            )} */}
       <div>Description: {thisPath.description}</div>
       <div>Tags: {thisPath.tags.join(", ")}</div>
       <div>Itinerary:</div>
@@ -62,7 +53,6 @@ export default function MyPathDetailPage(props) {
         ))}
       </ol>
       <div>Created: {thisPath.createdAt.slice(0, 10)}</div>
-      {/* <div>props.user._id: {props.user._id}</div> */}
       {props.user._id == thisPath.user ? (
         <>
           <Link to={`/${thisPath.title}/edit`}>EDIT</Link>
