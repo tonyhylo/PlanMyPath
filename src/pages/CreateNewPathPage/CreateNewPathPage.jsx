@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import * as mypathsAPI from "../../utilities/mypaths-api";
 import TagsListItem from "../TagsListItem/TagsListItem";
+import ItineraryListItem from "../ItineraryListItem/ItineraryListItem"
 
 export default function CreateNewPathPage(props) {
   const [newPath, setNewPath] = useState({
@@ -15,15 +16,21 @@ export default function CreateNewPathPage(props) {
   });
 
   const [newTags, setNewTags] = useState([]);
+  const [newItinerary, setNewItinerary] = useState([]);
 
   const [error, setError] = useState("");
   const inputRef = useRef(null);
+  const inputRef2 = useRef(null);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     setNewPath({ ...newPath, tags: newTags });
   }, [newTags]);
+
+  useEffect(() => {
+    setNewPath({ ...newPath, itinerary: newItinerary });
+  }, [newItinerary]);
 
   function handleChange(evt) {
     setNewPath({ ...newPath, [evt.target.name]: evt.target.value });
@@ -47,13 +54,17 @@ export default function CreateNewPathPage(props) {
     inputRef.current.value = "";
   }
 
-  function handleTagDelete(evt, idx) {
+  function handleItinerary(evt) {
     evt.preventDefault();
-    const tempTags = [...newTags];
-    console.log("idx: ", evt);
+    setNewItinerary([...newItinerary, inputRef2.current.value]);
+    inputRef2.current.value = "";
   }
 
   function handleTagChange(evt, second) {
+    setError("");
+  }
+
+  function handleItineraryChange(evt, second) {
     setError("");
   }
 
@@ -138,9 +149,41 @@ export default function CreateNewPathPage(props) {
             </div>
           </>
         )}
+        <label>Itinerary</label>
+        <>
+          <ol>
+            {newItinerary.map((itineraryItem, i) => (
+              <>
+                <ItineraryListItem itineraryItem={itineraryItem} />
+                <button
+                  type="button"
+                  onClick={(evt) => {
+                    evt.preventDefault();
+                    const tempItin = [...newItinerary];
+                    tempItin.splice(i, 1);
+                    setNewItinerary(tempItin);
+                  }}
+                >
+                  <strong>X</strong>
+                </button>
+              </>
+            ))}
+          </ol>
+          <input
+            name="itinerary"
+            ref={inputRef2}
+            onChange={handleItineraryChange}
+            type="text"
+          />
+          <div>
+            <button type="button" onClick={handleItinerary}>
+              <strong>ADD ITINERARY ITEM</strong>
+            </button>
+          </div>
+        </>
         <div>
           <button type="submit">
-            <strong>ADD PATH</strong>
+            <strong>SAVE NEW PATH</strong>
           </button>
         </div>
       </form>
