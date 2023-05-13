@@ -17,9 +17,13 @@ export default function EditPathPage(props) {
   const inputRef2 = useRef(null);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   props.setMyPaths([...props.setMyPaths, editPath]);
-  // }, [props.myPaths]);
+  useEffect(() => {
+    setPath({ ...path, tags: newTags });
+  }, [newTags]);
+
+  useEffect(() => {
+    setPath({ ...path, itinerary: newItinerary });
+  }, [newItinerary]);
 
   useEffect(() => {
     let thisPath = props.myPaths.find((path) => path.title === pathName);
