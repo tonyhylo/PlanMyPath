@@ -1,0 +1,15 @@
+.inline-tags {
+    display: flex;
+}
+
+#del-tag, #del-itin {
+    margin: 0 0 1vh 1vh;
+}
+
+#title-h1 {
+    margin: 5vh 0 5vh 0;
+}
+
+form {
+    margin: 0 0 0 3vh;
+}

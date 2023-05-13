@@ -11,7 +11,7 @@ export default function NavBar({ user, setUser }) {
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item">
-          <Link to="/">🌎PLANMYPATH</Link>
+          <Link to="/"><strong>🌎PLANMYPATH</strong></Link>
         </a>
 
         <a
