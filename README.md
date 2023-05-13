@@ -34,8 +34,9 @@ This is the go to place when there is a destination in mind, and you are looking
 GarageGuru was built using the following technologies:
 
 - <img src="https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png" alt="HTML5 Logo" width="24" height="24"> - HTML
-- <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS3 Logo" width="24" height="24"> - CSS
 - <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt= "JavaScript Logo" width= "24" height= "24"> - JavaScript
+- <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS3 Logo" width="24" height="24"> - CSS
+- <img src="https://bulma.io/assets/Bulma%20Icon.png" alt= "JavaScript Logo" width= "17" height= "24"> - Bulma
 - <img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-ar21.svg" alt="MongoDB Logo" width="60" height="24" > - MongoDB
 - <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png?20170429090805" alt="Express Logo" width="90" height="24" > - Express
 - <img src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png" alt="React Logo" width="24" height="24" > - React
