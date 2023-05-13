@@ -238,7 +238,7 @@ export default function EditPathPage(props) {
           <div class="field is-grouped">
             <div class="control">
               <button class="button is-link" type="submit">
-                SUBMIT NEW PATH
+                SAVE EDITS
               </button>
             </div>
           </div>
