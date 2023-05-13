@@ -71,7 +71,7 @@ export default function CreateNewPathPage(props) {
 
   return (
     <>
-      <h1 class="title is-1 has-text-centered" id="title-h1" >CreateNewPathPage</h1>
+      <h1 class="title is-1 has-text-centered" id="title-h1" >Create New Path</h1>
 
       <form onSubmit={handleSubmit}>
         <div>
