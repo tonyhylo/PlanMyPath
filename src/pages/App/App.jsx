@@ -27,7 +27,7 @@ export default function App() {
   }, []);
 
   return (
-    <main className="App">
+    <main class="App">
       {user ? (
         <>
           <NavBar user={user} setUser={setUser} />
